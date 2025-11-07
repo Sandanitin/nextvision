@@ -298,9 +298,9 @@ const About = () => {
                     </span>
                   ))}
                 </div>
-                <button className="bg-white text-primary-blue font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1">
+                {/* <button className="bg-white text-primary-blue font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1">
                   Learn About Our Team
-                </button>
+                </button> */}
               </div>
             </motion.div>
           </div>

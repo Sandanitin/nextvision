@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   PhoneIcon,
@@ -290,12 +291,12 @@ const Contact = () => {
                 <PhoneIcon className="w-5 h-5 mr-2" />
                 Call Us Now
               </a>
-              <a
-                href="/services"
+              <Link
+                to="/services"
                 className="inline-flex items-center justify-center rounded-lg bg-transparent border-2 border-white text-white font-semibold px-8 py-4 shadow-lg hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
               >
                 View Our Services
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -55,11 +55,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/industries" className="hover:text-primary-sky transition-colors duration-200">
-                  Industries
-                </Link>
-              </li>
-              <li>
                 <Link to="/contact" className="hover:text-primary-sky transition-colors duration-200">
                   Contact
                 </Link>
@@ -72,22 +67,22 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4 text-lg">Services</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/services" className="hover:text-primary-sky transition-colors duration-200">
+                <Link to="/services?category=0" className="hover:text-primary-sky transition-colors duration-200">
                   Core IT Services
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-primary-sky transition-colors duration-200">
+                <Link to="/services?category=1" className="hover:text-primary-sky transition-colors duration-200">
                   AI Services
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-primary-sky transition-colors duration-200">
+                <Link to="/services?category=2" className="hover:text-primary-sky transition-colors duration-200">
                   Digital Transformation
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-primary-sky transition-colors duration-200">
+                <Link to="/services?category=3" className="hover:text-primary-sky transition-colors duration-200">
                   Partners & Ecosystem
                 </Link>
               </li>

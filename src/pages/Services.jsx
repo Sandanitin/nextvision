@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ShieldCheckIcon,
@@ -17,9 +18,23 @@ import {
 } from '@heroicons/react/24/outline';
 
 const Services = () => {
-  const [activeCategory, setActiveCategory] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryParam = searchParams.get('category');
+  const initialCategory = categoryParam ? parseInt(categoryParam, 10) : 0;
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [query, setQuery] = useState('');
   const [expandedServices, setExpandedServices] = useState({});
+
+  // Update active category when URL parameter changes
+  useEffect(() => {
+    if (categoryParam !== null) {
+      const categoryIndex = parseInt(categoryParam, 10);
+      // There are 4 service categories (0-3)
+      if (!isNaN(categoryIndex) && categoryIndex >= 0 && categoryIndex <= 3) {
+        setActiveCategory(categoryIndex);
+      }
+    }
+  }, [categoryParam]);
 
   const serviceCategories = [
     {
@@ -237,6 +252,11 @@ const Services = () => {
     }));
   };
 
+  const handleCategoryChange = (index) => {
+    setActiveCategory(index);
+    setSearchParams({ category: index.toString() });
+  };
+
   // Show first 5 services by default, expand for more
   const getVisibleServices = (items, category) => {
     const isExpanded = expandedServices[category];
@@ -280,7 +300,7 @@ const Services = () => {
                   role="tab"
                   aria-selected={isActive}
                   tabIndex={isActive ? 0 : -1}
-                  onClick={() => setActiveCategory(index)}
+                  onClick={() => handleCategoryChange(index)}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 10 }}
