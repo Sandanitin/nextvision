@@ -12,7 +12,7 @@ const Footer = () => {
               <img 
                 src="/images/logo.png" 
                 alt="Next Vision IT Logo" 
-                className="h-8 w-auto"
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
