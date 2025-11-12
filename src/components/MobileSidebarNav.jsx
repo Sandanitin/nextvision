@@ -5,10 +5,7 @@ import {
   HomeIcon,
   UserGroupIcon,
   Cog6ToothIcon,
-  BuildingOffice2Icon,
   EnvelopeIcon,
-  Bars3Icon,
-  XMarkIcon,
 } from '@heroicons/react/24/outline';
 
 const NAV_LINKS = [
@@ -26,11 +23,6 @@ const NAV_LINKS = [
     name: "Services",
     to: "/services",
     icon: Cog6ToothIcon,
-  },
-  {
-    name: "Industries",
-    to: "/industries",
-    icon: BuildingOffice2Icon,
   },
   {
     name: "Contact",
@@ -94,24 +86,31 @@ export default function MobileSidebarNav() {
     },
   };
 
-  // Toggle icon cross/hamburger
+  // Toggle icon cross/hamburger with fixed blue color
   const Path = ({ d, ...rest }) => (
     <motion.path
       fill="transparent"
       strokeWidth="3"
-      stroke="#fff"
+      stroke="#1897ED" // Fixed blue color
       strokeLinecap="round"
       {...rest}
       d={d}
     />
   );
 
+  // Close menu function
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
+      {/* Mobile menu button - Fixed blue color */}
       <button
-        className="relative inline-flex items-center justify-center rounded-full p-2 text-primary-blue bg-primary-sky/10 hover:bg-primary-sky focus:outline-none z-50"
-        aria-label="Open menu"
+        className="relative inline-flex items-center justify-center rounded-full p-2 text-blue-500 bg-blue-100 hover:bg-blue-200 focus:outline-none z-50"
+        aria-label="Open mobile menu"
         onClick={() => setIsOpen(true)}
+        key="mobile-menu-button"
       >
         <svg width="28" height="28" viewBox="0 0 23 23">
           <Path
@@ -129,6 +128,8 @@ export default function MobileSidebarNav() {
           />
         </svg>
       </button>
+      
+      {/* Mobile menu overlay and sidebar */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -136,11 +137,13 @@ export default function MobileSidebarNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/40 z-40"
-            onClick={() => setIsOpen(false)}
+            onClick={closeMenu}
             aria-label="Close menu overlay"
+            key="menu-overlay"
           />
         )}
       </AnimatePresence>
+      
       <AnimatePresence>
         {isOpen && (
           <motion.nav
@@ -148,17 +151,20 @@ export default function MobileSidebarNav() {
             animate="open"
             exit="closed"
             variants={sidebarVariants}
-            className="fixed top-0 left-0 h-full w-[85vw] max-w-xs bg-primary-dark shadow-2xl z-50 px-2 py-4 flex flex-col"
-            style={{ borderRight: '1px solid #044', boxShadow: '0 6px 24px -2px #003D66' }}
+            className="fixed top-0 left-0 h-full w-[85vw] max-w-xs bg-blue-900 shadow-2xl z-50 px-2 py-4 flex flex-col"
+            style={{ borderRight: '1px solid #1897ED', boxShadow: '0 6px 24px -2px #1897ED', marginTop: '4rem' }}
             ref={containerRef}
             aria-label="Sidebar navigation"
+            key="mobile-sidebar"
           >
             <button
               aria-label="Close menu"
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 p-2 text-white/70 hover:text-primary-sky"
+              onClick={closeMenu}
+              className="absolute top-4 right-4 p-2 text-blue-200 hover:text-blue-100"
             >
-              <XMarkIcon className="h-7 w-7" />
+              <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
             <motion.ul className="mt-16 space-y-2" variants={navVariants}>
               {NAV_LINKS.map(link => (
@@ -170,11 +176,11 @@ export default function MobileSidebarNav() {
                 >
                   <Link
                     to={link.to}
-                    className={`flex items-center gap-4 text-lg px-5 py-3 rounded-xl text-white/90 hover:bg-primary-sky/20 hover:text-primary-sky font-semibold tracking-wide transition-colors duration-300 ${location.pathname === link.to ? 'bg-primary-sky/20 text-primary-sky' : ''}`}
-                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-4 text-lg px-5 py-3 rounded-xl text-blue-100 hover:bg-blue-800 hover:text-white font-semibold tracking-wide transition-colors duration-300 ${location.pathname === link.to ? 'bg-blue-800 text-white' : ''}`}
+                    onClick={closeMenu}
                     tabIndex={isOpen ? 0 : -1}
                   >
-                    <span className="flex-shrink-0 bg-primary-sky p-2 rounded-full bg-opacity-30 mr-1">
+                    <span className="flex-shrink-0 bg-blue-800 p-2 rounded-full bg-opacity-30 mr-1">
                       {React.createElement(link.icon, { className: 'w-6 h-6' })}
                     </span>
                     {link.name}
