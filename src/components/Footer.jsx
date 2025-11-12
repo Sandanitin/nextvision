@@ -122,6 +122,17 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} Next Vision IT (Cayman) Limited. All rights reserved.</p>
+          <p className="mt-2">
+            Designed and Developed by{' '}
+            <a 
+              href="https://www.vikrin.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-sky hover:text-white transition-colors duration-200"
+            >
+              Vikrin
+            </a>
+          </p>
         </div>
       </div>
     </footer>
