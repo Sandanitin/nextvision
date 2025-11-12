@@ -37,7 +37,7 @@ const Navbar = () => {
               <img 
                 src="/images/logo.png" 
                 alt="Next Vision IT Logo" 
-                className="h-16 w-auto transition-transform duration-300 hover:scale-105"
+                className="h-20 w-auto transition-transform duration-300 hover:scale-105"
               />
             </Link>
           </div>

@@ -61,7 +61,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 md:pt-24">
+    <div className="">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-blue to-primary-mid text-white py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
