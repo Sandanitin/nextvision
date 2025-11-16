@@ -23,19 +23,19 @@ const Contact = () => {
     {
       icon: <PhoneIcon className="w-8 h-8" />,
       title: 'Phone',
-      content: '+1 (XXX) XXX-XXXX',
+      content: '+1 (345) 325-3231',
       color: 'bg-blue-100 text-blue-600'
     },
     {
       icon: <EnvelopeIcon className="w-8 h-8" />,
       title: 'Email',
-      content: 'info@nextvisionit.ky',
+      content: 'info@nextvisioncayman.com',
       color: 'bg-green-100 text-green-600'
     },
     {
       icon: <GlobeAltIcon className="w-8 h-8" />,
       title: 'Website',
-      content: 'www.nextvisionit.ky',
+      content: 'www.nextvisioncayman.com',
       color: 'bg-purple-100 text-purple-600'
     },
     {
@@ -47,7 +47,7 @@ const Contact = () => {
     {
       icon: <MapPinIcon className="w-8 h-8" />,
       title: 'Location',
-      content: 'Cayman Islands',
+      content: '480# Building, North Sound Road, Across From The CUC Building, Georgetown, Grand Cayman, Cayman Islands',
       color: 'bg-red-100 text-red-600'
     }
   ];
